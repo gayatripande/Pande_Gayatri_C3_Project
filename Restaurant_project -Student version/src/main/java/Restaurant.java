@@ -2,6 +2,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Objects.nonNull;
+
 public class Restaurant {
     private String name;
     private String location;
@@ -61,4 +63,14 @@ public class Restaurant {
         return name;
     }
 
+    public Integer getCost(List<String> selectedItemNames){
+        Integer cost = 0;
+        for(String selectedItemName : selectedItemNames){
+            Item item = findItemByName(selectedItemName);
+            if(nonNull(item)){
+                cost += item.getPrice();
+            }
+        }
+        return cost;
+    }
 }

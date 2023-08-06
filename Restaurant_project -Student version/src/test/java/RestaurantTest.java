@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -65,4 +66,11 @@ class RestaurantTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    @Test
+    void cost_value_should_be_388(){
+        Integer actualCost = restaurant.getCost(List.of("Sweet corn soup", "Vegetable lasagne"));
+        assertEquals(388, actualCost);
+    }
 }
